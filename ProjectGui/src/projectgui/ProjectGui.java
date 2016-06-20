@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -20,6 +21,7 @@ public class ProjectGui extends Application {
     public void start(Stage stage) throws Exception {
         window = stage;
         window.setResizable(false);
+        window.getIcons().add(new Image("projectgui/frameicon.png"));
         Parent root = FXMLLoader.load(getClass().getResource("MainGuiFXML.fxml"));
         Scene scene = new Scene(root);
         String css = ProjectGui.class.getResource("DarkTheme.css").toExternalForm();
