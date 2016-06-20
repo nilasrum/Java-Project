@@ -1,0 +1,32 @@
+/* 
+    Created on : Jun 18, 2016, 2:52:58 AM
+    Author     : Mursalin
+*/
+
+.root {
+    -fx-background-color: #383838;
+}
+
+.button {
+    -fx-background-color: linear-gradient(#4682b4,#4099FF);
+    -fx-font-family: "Consolas";
+    -fx-font-weight: bold;
+    -fx-font-size: 13;
+}
+
+.label {
+    -fx-background-color: #383838;
+    -fx-font-size: 10pt;
+    -fx-font-family: "Segoe UI Semibold";
+    -fx-text-fill: #F8F8F8;
+    -fx-opacity: 1;
+}
+
+.label-miss {
+    -fx-background-color: white;
+    -fx-font-size: 16pt;
+    -fx-font-family: "Stencil";
+    -fx-text-fill: black;
+    -fx-opacity: 1;
+}
+

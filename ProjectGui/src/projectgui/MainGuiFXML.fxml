@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="366.0" prefWidth="511.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projectgui.FXMLDocumentController">
+   <children>
+      <Label fx:id="Assiglabel" layoutX="47.0" layoutY="141.0" prefHeight="17.0" prefWidth="183.0" text="Assignment Folder">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="pathbox" layoutX="47.0" layoutY="175.0" prefHeight="20.0" prefWidth="354.0" />
+      <Button fx:id="BrowseButton" layoutX="413.0" layoutY="175.0" mnemonicParsing="false" onAction="#DirectoryPath" prefHeight="25.0" prefWidth="61.0" style="-fx-background-radius: 25 25 25 25;" text="Browse" />
+      <Button fx:id="processButton" layoutX="210.0" layoutY="277.0" mnemonicParsing="false" onAction="#ProcessData" prefHeight="41.0" prefWidth="92.0" style="-fx-background-radius: 25 25 25 25;" text="Process" />
+      <ComboBox fx:id="Assinum" layoutX="168.0" layoutY="221.0" prefHeight="25.0" prefWidth="147.0" promptText="0" />
+      <Label layoutX="47.0" layoutY="221.0" prefHeight="25.0" prefWidth="121.0" text="Asignment Number">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="logo" fitHeight="138.0" fitWidth="164.0" layoutX="196.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="228.0" AnchorPane.leftAnchor="196.0" AnchorPane.rightAnchor="151.0" AnchorPane.topAnchor="0.0" />
+   </children>
+</AnchorPane>
