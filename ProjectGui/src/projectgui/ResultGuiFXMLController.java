@@ -60,6 +60,7 @@ public class ResultGuiFXMLController implements Initializable {
         String css = ProjectGui.class.getResource("DarkTheme.css").toExternalForm();
         scene.getStylesheets().add(css);
         window.setScene(scene);
+        window.getIcons().add(new Image("projectgui/frameicon.png"));
         window.show();
     }
 

@@ -49,7 +49,8 @@ public class Main implements Runnable {
             }
         }
         
-       
+       int firstname,secondname;
+       GetAssignmentName gan = new GetAssignmentName();
         for(int i=0;i<N;i++){
             name = (String) AllAssi.get(i);
             for(int j=0;j<StudentReg.size();j++)
@@ -62,22 +63,25 @@ public class Main implements Runnable {
                 }
                 for(int k=j+1;k<StudentReg.size();k++){
                     FileTwo = fc.InFolder(pathToInputFolder+"/"+StudentReg.get(k));
+                    
                     f2 = ckm.isMissing(FileTwo, name);
                     if(f2==true){
                         missAssi[k][i]=1;
                         myMap.put(name, 1);
                     }
                     if(!f1 && !f2){
+                        firstname = gan.GetNameIndex(FileOne, name);
+                        secondname = gan.GetNameIndex(FileTwo, name);
                         myMap.put(name, 0);
                         missAssi[j][i]=missAssi[k][i]=0;
-                        one  = CharProcess.CharToChar(pathToInputFolder+"/"+StudentReg.get(j)+"/"+FileOne.get(i));
-                        two  = CharProcess.CharToChar(pathToInputFolder+"/"+StudentReg.get(k)+"/"+FileOne.get(i));
+                        one  = CharProcess.CharToChar(pathToInputFolder+"/"+StudentReg.get(j)+"/"+FileOne.get(firstname));
+                        two  = CharProcess.CharToChar(pathToInputFolder+"/"+StudentReg.get(k)+"/"+FileTwo.get(secondname));
                         dataOne[j][k][i]=dataOne[k][j][i]= CharMatch.FindMatch(one,two);
-                        one  = CaseProcess.tolowerall(pathToInputFolder+"/"+StudentReg.get(j)+"/"+FileOne.get(i));
-                        two  = CaseProcess.tolowerall(pathToInputFolder+"/"+StudentReg.get(k)+"/"+FileOne.get(i));
+                        one  = CaseProcess.tolowerall(pathToInputFolder+"/"+StudentReg.get(j)+"/"+FileOne.get(firstname));
+                        two  = CaseProcess.tolowerall(pathToInputFolder+"/"+StudentReg.get(k)+"/"+FileTwo.get(secondname));
                         dataTwo[j][k][i]=dataTwo[k][j][i]= CaseMatch.FindMatchCase(one,two);
-                        one = HashProcess.ProcessHashMatch(pathToInputFolder+"/"+StudentReg.get(k)+"/"+FileOne.get(i));
-                        two = HashProcess.ProcessHashMatch(pathToInputFolder+"/"+StudentReg.get(k)+"/"+FileOne.get(i));
+                        one = HashProcess.ProcessHashMatch(pathToInputFolder+"/"+StudentReg.get(j)+"/"+FileOne.get(firstname));
+                        two = HashProcess.ProcessHashMatch(pathToInputFolder+"/"+StudentReg.get(k)+"/"+FileTwo.get(secondname));
                         dataThree[j][k][i]=dataThree[k][j][i]= hashmatch.RabinKarp(one,two);
                     }
                 }
