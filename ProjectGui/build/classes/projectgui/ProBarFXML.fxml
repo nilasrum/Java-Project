@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="145.0" prefWidth="315.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.60" fx:controller="projectgui.Main">
+   <children>
+      <Label alignment="CENTER" layoutX="50.0" layoutY="44.0" prefHeight="17.0" prefWidth="216.0" text="PROCESSING...PLEASE WAIT">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <ProgressBar fx:id="probar" layoutX="23.0" layoutY="84.0" prefHeight="4.0" prefWidth="269.0" progress="0.0" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="23.0" />
+   </children>
+</AnchorPane>

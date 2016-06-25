@@ -30,3 +30,12 @@
     -fx-opacity: 1;
 }
 
+.progress-bar .bar {
+    -fx-background-color: linear-gradient(#800020, #FF0000);
+    /*-fx-background-color: linear-gradient(#3366CC, #3399FF);*/
+    -fx-background-insets: 1 1 2 1;
+    -fx-padding: 0.23em; /* 5 */
+}
+
+
+

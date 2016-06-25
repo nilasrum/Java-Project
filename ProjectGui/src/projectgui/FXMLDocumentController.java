@@ -58,12 +58,9 @@ public class FXMLDocumentController implements Initializable {
         
         if(flag==true && Assinum.getValue() != null) {
             mainLogic.N = Integer.parseInt(Assinum.getValue());
-            mainLogic.run();
-            AlertFXMLController alert = new AlertFXMLController();
-            alert.getNum(Integer.parseInt(Assinum.getValue()));
-            alert.TestScene();
             pathbox.setText("");
             flag=false;
+            mainLogic.run();
         }
     }
     

@@ -27,16 +27,15 @@ public class AlertFXMLController implements Initializable {
     @FXML
     Label completed;
     
-    public void TestScene()throws Exception{
-        window = new Stage();
-        window.initModality(Modality.APPLICATION_MODAL);
+    public void TestScene(Stage stage)throws Exception{
+        window = stage;
+        //window.initModality(Modality.APPLICATION_MODAL);
         Parent root = FXMLLoader.load(getClass().getResource("AlertFXML.fxml"));
         Scene scene = new Scene(root);
         String css = ProjectGui.class.getResource("DarkTheme.css").toExternalForm();
         scene.getStylesheets().add(css);
         window.setScene(scene);
         window.setResizable(false);
-        window.showAndWait();
     }
     
     public void getNum(int n){
