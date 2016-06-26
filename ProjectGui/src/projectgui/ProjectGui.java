@@ -9,13 +9,11 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 /**
- *
  * @author Mursalin
  */
 public class ProjectGui extends Application {
     
-    public static Stage window;
-    Scene scene2;
+    private Stage window;
     
     @Override
     public void start(Stage stage) throws Exception {
@@ -30,9 +28,7 @@ public class ProjectGui extends Application {
         window.show();
     }
     
-    /**
-     * @param args the command line arguments
-     */
+    
     public static void main(String[] args) {
         launch(args);
     }

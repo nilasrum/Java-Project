@@ -4,6 +4,9 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -311,12 +314,84 @@ public class ResultGuiFXMLController implements Initializable {
         assinum = n;
     }
 
+    void InitAll(int ind) {
+
+        Thread[] th = new Thread[4];
+        for (int i = 0; i < 4; i++) {
+            if (i == 0) {
+                th[i] = new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Platform.runLater(new Runnable() {
+                            @Override
+                            public void run() {
+                                InitMatrixOne(ind);
+                            }
+                        });
+                    }
+                });
+            }
+            if (i == 1) {
+                th[i] = new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Platform.runLater(new Runnable() {
+                            @Override
+                            public void run() {
+                                InitMatrixTwo(ind);
+                            }
+                        });
+
+                    }
+                });
+            }
+            if (i == 2) {
+                th[i] = new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Platform.runLater(new Runnable() {
+                            @Override
+                            public void run() {
+                                InitMatrixThree(ind);
+                            }
+                        });
+                    }
+                });
+            }
+            if (i == 3) {
+                th[i] = new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Platform.runLater(new Runnable() {
+                            @Override
+                            public void run() {
+                                InitMissing(ind);
+                            }
+                        });
+                    }
+                });
+            }
+            th[i].setPriority(Thread.MAX_PRIORITY);
+            th[i].start();
+        }
+
+        for (int i = 0; i < 4; i++) {
+            try {
+                th[i].join();
+            } catch (InterruptedException ex) {
+                Logger.getLogger(ResultGuiFXMLController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+
         InitMatrixOne(0);
         InitMatrixTwo(0);
         InitMatrixThree(0);
         InitMissing(0);
+
         ObservableList<String> ndata = FXCollections.observableArrayList();
         AllAssignment asl = new AllAssignment();
         ArrayList names = asl.AssiNames(assinum);
@@ -335,12 +410,11 @@ public class ResultGuiFXMLController implements Initializable {
                     protected void updateItem(String item, boolean empty) {
                         super.updateItem(item, empty);
                         if (item != null) {
-                            int ck = myMap.get(item);
                             Image img;
-                            if (ck == 1) {
-                                img = new Image("projectgui/redicon.png");
-                            } else {
+                            if (myMap.get(item) == null) {
                                 img = new Image("projectgui/icon.png");
+                            } else {
+                                img = new Image("projectgui/redicon.png");
                             }
                             ImageView imgview = new ImageView(img);
                             setGraphic(imgview);
@@ -352,7 +426,6 @@ public class ResultGuiFXMLController implements Initializable {
             }
         });
 
-        //icon for list*/
         AssiNameList.setItems(ndata);
 
         AssiNameList.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
@@ -361,18 +434,11 @@ public class ResultGuiFXMLController implements Initializable {
                 String str = newValue;
                 for (int i = 0; i < ndata.size(); i++) {
                     if (str.equals(ndata.get(i))) {
-                        //call all three;
-                        InitMatrixOne(i);
-                        InitMatrixTwo(i);
-                        InitMatrixThree(i);
-                        InitMissing(i);
+                        InitAll(i);
                     }
                 }
-
             }
-        }
-        );
-
+        });
     }
 
 }

@@ -2,8 +2,6 @@ package projectgui;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import static javafx.application.Application.STYLESHEET_CASPIAN;
-import static javafx.application.Application.setUserAgentStylesheet;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -11,14 +9,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 
 public class AlertFXMLController implements Initializable {
 
     private static Stage window;
-    public static int num;
+    private static int num;
     
     @FXML
     Button backButton;
@@ -29,7 +26,6 @@ public class AlertFXMLController implements Initializable {
     
     public void TestScene(Stage stage)throws Exception{
         window = stage;
-        //window.initModality(Modality.APPLICATION_MODAL);
         Parent root = FXMLLoader.load(getClass().getResource("AlertFXML.fxml"));
         Scene scene = new Scene(root);
         String css = ProjectGui.class.getResource("DarkTheme.css").toExternalForm();

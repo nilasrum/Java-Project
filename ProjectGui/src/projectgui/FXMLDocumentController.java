@@ -1,6 +1,5 @@
 package projectgui;
 
-
 import javafx.scene.control.TextField;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -24,6 +23,8 @@ public class FXMLDocumentController implements Initializable {
     private boolean flag = false;
     private Main mainLogic;
     public String path="";
+    ObservableList<String> assiList = FXCollections.observableArrayList("0","1","2","3","4","5","6","7",
+            "8","9","10","11","12","13","14","15");
     
     @FXML
     private TextField pathbox;
@@ -37,7 +38,7 @@ public class FXMLDocumentController implements Initializable {
     private ComboBox<String> Assinum;
     @FXML
     ImageView logo;
-    ObservableList<String> assiList = FXCollections.observableArrayList("0","1","2","3","4","5","6","7","8","9","10","11","12","13","14","15");
+    
         
     @FXML
     private void DirectoryPath(){
@@ -54,7 +55,7 @@ public class FXMLDocumentController implements Initializable {
     }
     
     @FXML
-    private void ProcessData()throws Exception{
+    private void ProcessData() {
         
         if(flag==true && Assinum.getValue() != null) {
             mainLogic.N = Integer.parseInt(Assinum.getValue());
