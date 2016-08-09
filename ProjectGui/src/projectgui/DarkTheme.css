@@ -14,7 +14,15 @@
     -fx-font-size: 13;
 }
 
-.label {
+.label-message {
+    -fx-background-color: #383838;
+    -fx-font-size: 10pt;
+    -fx-font-family: "Segoe UI Semibold";
+    -fx-text-fill: #F8F8F8;
+    -fx-opacity: 1;
+}
+
+.table-view .column-header-background .label{
     -fx-background-color: #383838;
     -fx-font-size: 10pt;
     -fx-font-family: "Segoe UI Semibold";
@@ -37,5 +45,17 @@
     -fx-padding: 0.23em; /* 5 */
 }
 
+.menu .label{
+    -fx-background-color: transparent;
+    -fx-text-fill: black;
+}
 
+.tooltip{
+    -fx-background-color: #4682b4;
+    -fx-border-color: white;
+    -fx-font-size :10pt; 
+}
 
+.list-cell:empty {
+    -fx-background-color: white;
+}

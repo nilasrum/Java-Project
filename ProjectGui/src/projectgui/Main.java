@@ -15,23 +15,26 @@ public class Main implements Runnable {
     private FolderContent fc = new FolderContent();
     private AllAssignment als = new AllAssignment();
 
-    static double dataOne[][][] = new double[100][100][100];
-    static double dataTwo[][][] = new double[100][100][100];
-    static String dataThree[][][] = new String[100][100][100];
-    static int missAssi[][] = new int[100][30];
+    static double dataOne[][][];
+    static double dataTwo[][][];
+    static double dataThree[][][];
+    static String dataFour[][][];
+    static int missAssi[][];
     static Map<String, Integer> myMap = new HashMap<String, Integer>();
-    static int row;
+    static int alim;
+    static int lim;
     static ArrayList StudentReg;
 
     public void solve() {
 
         myMap.clear();
-        for (int i = 0; i < 100; i++) {
-            for (int j = 0; j < 100; j++) {
-                for (int k = 0; k < 100; k++) {
+        for (int i = 0; i < lim; i++) {
+            for (int j = 0; j < lim; j++) {
+                for (int k = 0; k < alim; k++) {
                     dataOne[i][j][k] = 0.0;
                     dataTwo[i][j][k] = 0.0;
-                    dataThree[i][j][k] = "0";
+                    dataThree[i][j][k] = 0.0;
+                    dataFour[i][j][k] = "0";
                 }
             }
         }
@@ -56,7 +59,13 @@ public class Main implements Runnable {
     public void run() {
         ArrayList names = new ArrayList<String>();
         StudentReg = FolderContent.InFolder(pathToInputFolder);
-        row = StudentReg.size();
+        lim = StudentReg.size()+2;
+        alim = N+2;
+        dataOne = new double[lim][lim][alim];
+        dataTwo = new double[lim][lim][alim];
+        dataThree = new double[lim][lim][alim];
+        dataFour = new String[lim][lim][alim];
+        missAssi = new int[lim][alim];
         solve();
     }
 
@@ -76,6 +85,8 @@ public class Main implements Runnable {
             MatchCaseInsensitive CaseMatch = new MatchCaseInsensitive();
             HashMatchProcess HashProcess = new HashMatchProcess();
             HashMatch hashmatch = new HashMatch();
+            ProcessIgnoreSpace processIgnoreSpace = new ProcessIgnoreSpace();
+            MatchIgnoreSpace matchIgnoreSpace = new MatchIgnoreSpace();
             int firstname, secondname;
             GetAssignmentName gan = new GetAssignmentName();
 
@@ -116,7 +127,10 @@ public class Main implements Runnable {
                             dataTwo[j][k][i] = dataTwo[k][j][i] = CaseMatch.FindMatchCase(one, two);
                             one = HashProcess.ProcessHashMatch(pathToInputFolder + "/" + StudentReg.get(j) + "/" + FileOne.get(firstname));
                             two = HashProcess.ProcessHashMatch(pathToInputFolder + "/" + StudentReg.get(k) + "/" + FileTwo.get(secondname));
-                            dataThree[j][k][i] = dataThree[k][j][i] = hashmatch.RabinKarp(one, two);
+                            dataFour[j][k][i] = dataFour[k][j][i] = hashmatch.RabinKarp(one, two);
+                            one = processIgnoreSpace.IgnoreSpace(pathToInputFolder + "/" + StudentReg.get(j) + "/" + FileOne.get(firstname));
+                            two = processIgnoreSpace.IgnoreSpace(pathToInputFolder + "/" + StudentReg.get(k) + "/" + FileTwo.get(secondname));
+                            dataThree[j][k][i] = dataThree[k][j][i] = matchIgnoreSpace.FindIgnoreSpaceMatch(one, two);
                         }
                     }
                     updateProgress(neu, ttl);

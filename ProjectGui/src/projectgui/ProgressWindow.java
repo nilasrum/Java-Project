@@ -22,7 +22,7 @@ public class ProgressWindow {
         window.initModality(Modality.APPLICATION_MODAL);
         window.getIcons().add(new Image("projectgui/frameicon.png"));
         Label label = new Label("Processing...Please wait");
-        label.setStyle("-fx-font-size: 12pt");
+        label.getStyleClass().add("label-message");
         probar.setPrefWidth(250);
         probar.setProgress(0.0);
         VBox root = new VBox();

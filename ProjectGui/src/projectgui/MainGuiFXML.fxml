@@ -19,7 +19,7 @@
       <Button fx:id="BrowseButton" layoutX="413.0" layoutY="175.0" mnemonicParsing="false" onAction="#DirectoryPath" prefHeight="25.0" prefWidth="61.0" style="-fx-background-radius: 25 25 25 25;" text="Browse" />
       <Button fx:id="processButton" layoutX="210.0" layoutY="277.0" mnemonicParsing="false" onAction="#ProcessData" prefHeight="41.0" prefWidth="92.0" style="-fx-background-radius: 25 25 25 25;" text="Process" />
       <ComboBox fx:id="Assinum" layoutX="168.0" layoutY="221.0" prefHeight="25.0" prefWidth="147.0" promptText="0" />
-      <Label layoutX="47.0" layoutY="221.0" prefHeight="25.0" prefWidth="121.0" text="Asignment Number">
+      <Label fx:id="Assinumlabel" layoutX="47.0" layoutY="221.0" prefHeight="25.0" prefWidth="121.0" text="Asignment Number">
          <font>
             <Font size="13.0" />
          </font>

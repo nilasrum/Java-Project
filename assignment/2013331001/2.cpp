@@ -1,14 +1,3 @@
-/*
-
-“When I wrote this, Heaven and I knew what it meant; now, Heaven only knows.”
-               ***                   ***                 ***
-
-problem id :
-judge      :
-@uthor     : []\/[]™
-
-*/
-
 //C headers
 #include <stdio.h>
 #include <stdlib.h>
@@ -93,61 +82,10 @@ const double E = exp (1);
 #define SQR(a) ((a) * (a))
 #define FOREACH(i, x) for(__typeof((x).begin()) i = (x).begin(); i != (x).end(); i ++)
 template<class T1> void deb (T1 e)
-{
-	cout << "-->" << e << endl;
-}
-template<class T1, class T2> void deb (T1 e1, T2 e2)
-{
-	cout << "-->" << e1 << " " << e2 << endl;
-}
-template<class T1, class T2, class T3> void deb (T1 e1, T2 e2, T3 e3)
-{
-	cout << "-->" << e1 << " " << e2 << " " << e3 << endl;
-}
-template<class T1, class T2, class T3, class T4> void deb (T1 e1, T2 e2, T3 e3, T4 e4)
-{
-	cout << "-->" << e1 << " " << e2 << " " << e3 << " " << e4 << endl;
-}
-template<class T1, class T2, class T3, class T4, class T5> void deb (T1 e1, T2 e2, T3 e3, T4 e4, T5 e5)
-{
-	cout << e1 << " " << e2 << " " << e3 << " " << e4 << " " << e5 << endl;
-}
-template<class T1, class T2, class T3, class T4, class T5, class T6> void deb (T1 e1, T2 e2, T3 e3, T4 e4, T5 e5, T6 e6)
-{
-	cout << e1 << " " << e2 << " " << e3 << " " << e4 << " " << e5 << " " << e6 << endl;
-}
-template<typename T> inline T sqr (T n)
-{
-	return n * n;
-}
-inline double hypot (double x, double y)
-{
-	return sqrt (sqr (x) + sqr (y) );
-}
-template<typename T> inline T pmod (T n, T m)
-{
-	return ( (n % m) + m) % m;
-}
-template<typename T> T power (T n, int p)
-{
-	return (p == 0) ? (T) (1) : (sqr (power (n, p >> 1) ) * ( (p & 1) * (n - 1) + 1) );
-}
-template<typename T> T bigmod (T n, int p, T m)
-{
-	return (p == 0) ? (T) (1) : ( (sqr (bigmod (n, p >> 1, m) ) % m) * ( (p & 1) * (n - 1) % m + 1) ) % m;
-}
 //inline long FastMax(long x, long y) { return (((y-x)>>(32-1))&(x^y))^y; }
 //inline long FastMin(long x, long y) { return (((y-x)>>(32-1))&(x^y))^x; }
 //inline long FastMin(long x, long y) { return (((y-x)>>(32-1))&(x^y))^x; }
-
 //#include<conio.h>
 //#define wait getchar()
-
-int main()
-{
-	//freopen("inp.txt","r",stdin);
-	//freopen("out.txt","w",stdout);
-	printf("Hello Bro!\n");
-	return 0;
-}
+zxcvbnmasd
 

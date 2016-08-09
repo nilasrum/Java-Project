@@ -22,7 +22,9 @@ public class AlertFXMLController implements Initializable {
     @FXML
     Button showButton;
     @FXML
-    Label completed;
+    Label msg1;
+    @FXML
+    Label msg2;
     
     public void TestScene(Stage stage)throws Exception{
         window = stage;
@@ -53,7 +55,8 @@ public class AlertFXMLController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+        msg1.getStyleClass().add("label-message");
+        msg2.getStyleClass().add("label-message");
     }    
     
 }

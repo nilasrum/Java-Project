@@ -23,7 +23,7 @@ public class FXMLDocumentController implements Initializable {
     private boolean flag = false;
     private Main mainLogic;
     public String path="";
-    ObservableList<String> assiList = FXCollections.observableArrayList("0","1","2","3","4","5","6","7",
+    ObservableList<String> assiList = FXCollections.observableArrayList("1","2","3","4","5","6","7",
             "8","9","10","11","12","13","14","15");
     
     @FXML
@@ -38,6 +38,8 @@ public class FXMLDocumentController implements Initializable {
     private ComboBox<String> Assinum;
     @FXML
     ImageView logo;
+    @FXML
+    private Label Assinumlabel;
     
         
     @FXML
@@ -70,6 +72,8 @@ public class FXMLDocumentController implements Initializable {
         Image vlogo = new Image("projectgui/logo.png");
         logo.setImage(vlogo);
         Assinum.setItems(assiList);
+        Assiglabel.getStyleClass().add("label-message");
+        Assinumlabel.getStyleClass().add("label-message");
     }    
     
 }
