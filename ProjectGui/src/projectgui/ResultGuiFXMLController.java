@@ -1,7 +1,6 @@
 package projectgui;
 
 import java.io.File;
-import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -35,10 +34,8 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ColorPicker;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TextField;
-import javafx.scene.control.TextFormatter;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
 import static projectgui.Main.lim;
@@ -133,12 +130,12 @@ public class ResultGuiFXMLController implements Initializable {
 
     public void ResScene() throws Exception {
         window = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("ResFXML.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/fxmlpack/ResFXML.fxml"));
         Scene scene = new Scene(root);
-        String css = ProjectGui.class.getResource("DarkTheme.css").toExternalForm();
+        String css = ProjectGui.class.getResource("/res/DarkTheme.css").toExternalForm();
         scene.getStylesheets().add(css);
         window.setScene(scene);
-        window.getIcons().add(new Image("projectgui/frameicon.png"));
+        window.getIcons().add(new Image("res/frameicon.png"));
         window.show();
     }
 
@@ -869,11 +866,11 @@ public class ResultGuiFXMLController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        color1.setValue(black);
+        /*color1.setValue(black);
         color2.setValue(black);
         color3.setValue(black);
         color4.setValue(black);
-        color5.setValue(black);
+        color5.setValue(black);*/
         
         currassi = 0;
         currtab = 1;
@@ -903,9 +900,9 @@ public class ResultGuiFXMLController implements Initializable {
                         if (item != null) {
                             Image img;
                             if (myMap.get(item) == null) {
-                                img = new Image("projectgui/icon.png");
+                                img = new Image("res/icon.png");
                             } else {
-                                img = new Image("projectgui/redicon.png");
+                                img = new Image("res/redicon.png");
                             }
                             ImageView imgview = new ImageView(img);
                             setGraphic(imgview);

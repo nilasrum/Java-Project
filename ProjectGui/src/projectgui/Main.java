@@ -14,15 +14,14 @@ public class Main implements Runnable {
     public String pathToInputFolder = ""; //defined by user
     private FolderContent fc = new FolderContent();
     private AllAssignment als = new AllAssignment();
-
+    private int alim;
+    static int lim;
     static double dataOne[][][];
     static double dataTwo[][][];
     static double dataThree[][][];
     static String dataFour[][][];
     static int missAssi[][];
     static Map<String, Integer> myMap = new HashMap<String, Integer>();
-    static int alim;
-    static int lim;
     static ArrayList StudentReg;
 
     public void solve() {

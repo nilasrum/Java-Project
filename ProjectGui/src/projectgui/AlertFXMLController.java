@@ -28,9 +28,9 @@ public class AlertFXMLController implements Initializable {
     
     public void TestScene(Stage stage)throws Exception{
         window = stage;
-        Parent root = FXMLLoader.load(getClass().getResource("AlertFXML.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/fxmlpack/AlertFXML.fxml"));
         Scene scene = new Scene(root);
-        String css = ProjectGui.class.getResource("DarkTheme.css").toExternalForm();
+        String css = ProjectGui.class.getResource("/res/DarkTheme.css").toExternalForm();
         scene.getStylesheets().add(css);
         window.setScene(scene);
         window.setResizable(false);

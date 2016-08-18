@@ -20,7 +20,7 @@ public class ProgressWindow {
         probar = new ProgressBar();
         window.setResizable(false);
         window.initModality(Modality.APPLICATION_MODAL);
-        window.getIcons().add(new Image("projectgui/frameicon.png"));
+        window.getIcons().add(new Image("res/frameicon.png"));
         Label label = new Label("Processing...Please wait");
         label.getStyleClass().add("label-message");
         probar.setPrefWidth(250);
@@ -30,7 +30,7 @@ public class ProgressWindow {
         root.setAlignment(Pos.CENTER);
         root.setSpacing(20);
         Scene scene = new Scene(root, 315, 145);
-        String css = ProjectGui.class.getResource("DarkTheme.css").toExternalForm();
+        String css = ProjectGui.class.getResource("/res/DarkTheme.css").toExternalForm();
         scene.getStylesheets().add(css);
         window.setScene(scene);
         window.show();

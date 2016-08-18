@@ -22,7 +22,7 @@ public class FXMLDocumentController implements Initializable {
     private Stage stage;
     private boolean flag = false;
     private Main mainLogic;
-    public String path="";
+    private String path;
     ObservableList<String> assiList = FXCollections.observableArrayList("1","2","3","4","5","6","7",
             "8","9","10","11","12","13","14","15");
     
@@ -69,7 +69,7 @@ public class FXMLDocumentController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        Image vlogo = new Image("projectgui/logo.png");
+        Image vlogo = new Image("res/logo.png");
         logo.setImage(vlogo);
         Assinum.setItems(assiList);
         Assiglabel.getStyleClass().add("label-message");

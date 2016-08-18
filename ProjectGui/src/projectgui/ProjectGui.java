@@ -19,10 +19,10 @@ public class ProjectGui extends Application {
     public void start(Stage stage) throws Exception {
         window = stage;
         window.setResizable(false);
-        window.getIcons().add(new Image("projectgui/frameicon.png"));
-        Parent root = FXMLLoader.load(getClass().getResource("MainGuiFXML.fxml"));
+        window.getIcons().add(new Image("res/frameicon.png"));
+        Parent root = FXMLLoader.load(getClass().getResource("/fxmlpack/MainGuiFXML.fxml"));
         Scene scene = new Scene(root);
-        String css = ProjectGui.class.getResource("DarkTheme.css").toExternalForm();
+        String css = ProjectGui.class.getResource("/res/DarkTheme.css").toExternalForm();
         scene.getStylesheets().add(css);
         window.setScene(scene);
         window.show();

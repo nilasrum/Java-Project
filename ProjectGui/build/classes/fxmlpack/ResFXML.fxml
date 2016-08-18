@@ -59,31 +59,31 @@
                                           </HBox>
                                           <HBox prefHeight="26.0" prefWidth="80.0" spacing="5.0">
                                              <children>
-                                                <TextField fx:id="txField1" prefWidth="146.0" />
+                                                <TextField fx:id="txField1" prefWidth="146.0" promptText="lower limit" />
                                                 <ColorPicker fx:id="color1" prefWidth="140.0" />
                                              </children>
                                           </HBox>
                                           <HBox layoutX="20.0" layoutY="20.0" prefHeight="26.0" prefWidth="80.0" spacing="5.0">
                                              <children>
-                                                <TextField fx:id="txField2" prefWidth="146.0" />
+                                                <TextField fx:id="txField2" prefWidth="146.0" promptText="lower limit" />
                                                 <ColorPicker fx:id="color2" prefWidth="140.0" />
                                              </children>
                                           </HBox>
                                           <HBox layoutX="20.0" layoutY="56.0" prefHeight="26.0" prefWidth="80.0" spacing="5.0">
                                              <children>
-                                                <TextField fx:id="txField3" prefWidth="146.0" />
+                                                <TextField fx:id="txField3" prefWidth="146.0" promptText="lower limit" />
                                                 <ColorPicker fx:id="color3" prefWidth="140.0" />
                                              </children>
                                           </HBox>
                                           <HBox layoutX="20.0" layoutY="92.0" prefHeight="26.0" prefWidth="80.0" spacing="5.0">
                                              <children>
-                                                <TextField fx:id="txField4" prefWidth="146.0" />
+                                                <TextField fx:id="txField4" prefWidth="146.0" promptText="lower limit" />
                                                 <ColorPicker fx:id="color4" prefWidth="140.0" />
                                              </children>
                                           </HBox>
                                           <HBox layoutX="20.0" layoutY="119.0" prefHeight="26.0" prefWidth="80.0" spacing="5.0">
                                              <children>
-                                                <TextField fx:id="txField5" prefWidth="146.0" />
+                                                <TextField fx:id="txField5" prefWidth="146.0" promptText="lower limit" />
                                                 <ColorPicker fx:id="color5" prefWidth="140.0" />
                                              </children>
                                           </HBox>
