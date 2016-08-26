@@ -18,8 +18,21 @@ import static projectgui.Main.StudentReg;
 import static projectgui.Main.missAssi;
 import static projectgui.ResultGuiFXMLController.assinum;
 
+/**
+ * <h1>Output Data</h1>
+ * output current/all processed assignment data as exel file
+ * @author Mursalin
+ * @version 1.0.0
+ */
 public class OutPutExel {
 
+    /**
+     * Output the current tab data as exel file
+     * @param tab current tab number
+     * @param assignment current assignment number 
+     * @param path path to save file
+     * @throws Exception
+     */
     public void OutputCurrentTable(int tab, int assignment, String path) throws Exception {
         AllAssignment asl = new AllAssignment();
         ArrayList names = asl.AssiNames(assinum);
@@ -88,6 +101,11 @@ public class OutPutExel {
         myexel.close();
     }
 
+    /**
+     * Output All data as exel file
+     * @param path path so save output
+     * @throws Exception
+     */
     public void OutPutAllTable(String path) throws Exception {
         AllAssignment asl = new AllAssignment();
         ArrayList names = asl.AssiNames(assinum);

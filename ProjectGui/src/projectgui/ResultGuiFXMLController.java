@@ -47,18 +47,27 @@ import static projectgui.Main.dataFour;
 import static projectgui.Main.missAssi;
 import static projectgui.Main.myMap;
 
+/**
+ *<h1>Interface to show processed data</h1>
+ * Shows the matched/unmatched result as a matrix
+ * @author Mursalin
+ * @version 1.0.0
+ */
 public class ResultGuiFXMLController implements Initializable {
 
     static Color settcol[][][];
-    static int settsrt[][][]; //ass tab txf
+    static int settsrt[][][]; //assi tab txf
     static int settend[][][];
     private static Stage window;
     private int SavedColorSett[][];
-    public static int assinum;
-    public int currassi;
-    public int currtab;
-    public boolean alltab;
-    Color black = Color.BLACK;
+    private int currassi;
+    private int currtab;
+    private Color black = Color.BLACK;
+    
+    /**
+     * number of assignment
+     */
+    public static  int assinum;
 
     @FXML
     private ListView AssiNameList;
@@ -109,7 +118,9 @@ public class ResultGuiFXMLController implements Initializable {
     @FXML
     Button defbuton;
     
-    
+    /**
+     * Initialize/clear the color settings
+     */
     public ResultGuiFXMLController() {
         
         settcol = new Color[30][10][10];
@@ -128,6 +139,10 @@ public class ResultGuiFXMLController implements Initializable {
         this.SavedColorSett = new int[10][10];
     }
 
+    /**
+     * Initialize the Scene to show result
+     * @throws Exception
+     */
     public void ResScene() throws Exception {
         window = new Stage();
         Parent root = FXMLLoader.load(getClass().getResource("/fxmlpack/ResFXML.fxml"));
@@ -139,6 +154,9 @@ public class ResultGuiFXMLController implements Initializable {
         window.show();
     }
 
+    /**
+     * Output the current table data as exel file
+     */
     @FXML
     public void SaveCurrentTable(){
         DirectoryChooser  dc = new DirectoryChooser();
@@ -160,6 +178,9 @@ public class ResultGuiFXMLController implements Initializable {
         }
     }
     
+    /**
+     * output all data as exel file
+     */
     @FXML
     public void SaveAllTable(){
         DirectoryChooser  dc = new DirectoryChooser();
@@ -360,41 +381,33 @@ public class ResultGuiFXMLController implements Initializable {
         return true;
     }
     
+    /**
+     * change the color of the current tab
+     */
     public void ChangeColor() {
-        alltab = false;//for now
-        if(alltab==true){
-            
-            SavedColorSett[currassi][1]=SavedColorSett[currassi][2]=SavedColorSett[currassi][3]=1;
-            for(int i=1;i<=4;i++){
-                for(int j=0;j<10;j++){
-                    settcol[currassi][i][j] = settcol[currassi][currtab][j];
-                    settsrt[currassi][i][j] = settsrt[currassi][currtab][j];
-                    settend[currassi][i][j] = settend[currassi][currtab][j];
-                }
-            }
-            InitMatrixOne(currassi, true);
-            InitMatrixTwo(currassi, true);
-            InitMatrixThree(currassi, true);
-        }
         
-        else{
-            if (tab1.isSelected()) {
+        if (tab1.isSelected()) {
                 
-                SavedColorSett[currassi][1]=1;
-                InitMatrixOne(currassi, true);
-            }
-            else if (tab2.isSelected()) {
+            SavedColorSett[currassi][1]=1;
+            InitMatrixOne(currassi, true);
+        }
+        else if (tab2.isSelected()) {
                
-                SavedColorSett[currassi][2]=1;
-                InitMatrixTwo(currassi, true);
-            }
-            else if (tab3.isSelected()) {
+            SavedColorSett[currassi][2]=1;
+            InitMatrixTwo(currassi, true);
+        }
+        else if (tab3.isSelected()) {
                 
-                SavedColorSett[currassi][3]=1;
-                InitMatrixThree(currassi,true);
-            }
+            SavedColorSett[currassi][3]=1;
+            InitMatrixThree(currassi,true);
         }
     }
+
+    /**
+     * reset all data of tab one 
+     * @param p current assignment
+     * @param flag default/user defined color settings
+     */
     public void InitMatrixOne(int p, boolean flag) {
 
         matrixOne.getColumns().clear();
@@ -487,6 +500,11 @@ public class ResultGuiFXMLController implements Initializable {
         matrixOne.setItems(data);
     }
 
+    /**
+     * reset all data of tab two
+     * @param p current assignment
+     * @param flag default/user defined color settings
+     */
     public void InitMatrixTwo(int p, boolean flag) {
 
         matrixTwo.getColumns().clear();
@@ -581,6 +599,10 @@ public class ResultGuiFXMLController implements Initializable {
         matrixTwo.setItems(data);
     }
 
+    /**
+     * reset all data of tab four
+     * @param p current assignment
+     */
     public void InitMatrixFour(int p) {
 
         matrixFour.getColumns().clear();
@@ -655,6 +677,11 @@ public class ResultGuiFXMLController implements Initializable {
         matrixFour.setItems(data);
     }
 
+    /**
+     * reset all data of tab three
+     * @param p current assignment
+     * @param flag default/user defined color settings
+     */
     public void InitMatrixThree(int p, boolean flag) {
 
         matrixThree.getColumns().clear();
@@ -749,6 +776,10 @@ public class ResultGuiFXMLController implements Initializable {
         matrixThree.setItems(data);
     }
 
+    /**
+     * reset all data of tab five
+     * @param p current assignment
+     */
     public void InitMissing(int p) {
         ObservableList<String> missdata = FXCollections.observableArrayList();
         AllAssignment asl = new AllAssignment();
@@ -768,10 +799,18 @@ public class ResultGuiFXMLController implements Initializable {
         }
     }
 
+    /**
+     * get number of assignment
+     * @param n number of assignment
+     */
     public void GetAssiNum(int n) {
         assinum = n;
     }
 
+    /**
+     * set data in all tab of a single assignment 
+     * @param ind assignment index
+     */
     void InitAll(int ind) {
 
         Thread[] th = new Thread[5];
@@ -855,7 +894,14 @@ public class ResultGuiFXMLController implements Initializable {
         }
     }
 
-    Color getColor(int id,int tb,int as) {
+    /**
+     * Finds saved color for given value from color settings
+     * @param id value
+     * @param tb tab number
+     * @param as assignment number
+     * @return Color
+     */
+    public Color getColor(int id,int tb,int as) {
         for (int i = 0; i < 5; i++) {
             if (id >= settsrt[as][tb][i] && id <= settend[as][tb][i]) {
                 return settcol[as][tb][i];
@@ -864,14 +910,15 @@ public class ResultGuiFXMLController implements Initializable {
         return black;
     }
     
+    /**
+     * set data to First assignment
+     * get number of assignment
+     * @param url URL
+     * @param rb ResourceBundle
+     */
+    
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        /*color1.setValue(black);
-        color2.setValue(black);
-        color3.setValue(black);
-        color4.setValue(black);
-        color5.setValue(black);*/
-        
+    public void initialize(URL url, ResourceBundle rb) { 
         currassi = 0;
         currtab = 1;
         InitMatrixOne(0, SavedColorSett[0][1]==1);

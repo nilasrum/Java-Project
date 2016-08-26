@@ -4,7 +4,20 @@ import java.io.*;
 import java.text.DecimalFormat;
 import javafx.util.converter.DoubleStringConverter;
 
+/**
+ * <h1>Match by ignoring space</h1>
+ * This class match two string char to char ignoring the space between them
+ * @author Mursalin
+ * @version 1.0.0
+ */
 public class MatchIgnoreSpace {
+
+    /**
+     * return match percentage between two string
+     * @param one string one
+     * @param two string two
+     * @return double
+     */
     public double FindIgnoreSpaceMatch(String one,String two){
         int total = Math.max(one.length(),two.length());
         int lim = Math.min(one.length(),two.length());

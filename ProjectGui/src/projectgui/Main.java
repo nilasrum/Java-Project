@@ -5,13 +5,24 @@ import javafx.concurrent.Task;
 import javafx.stage.Stage;
 
 /**
- * Main entry point to processing
+ * <h1>Main Entry Point To Processing</h1>
+ * This class process the data from user defined folder
+ * @see Runnable
+ * @author Mursalin
+ * @version 1.0.0
  */
 
 public class Main implements Runnable {
 
+    /**
+     * number of assignment
+     */
     public int N;
-    public String pathToInputFolder = ""; //defined by user
+    
+    /**
+     * User selected folder path
+     */
+    public String pathToInputFolder;
     private FolderContent fc = new FolderContent();
     private AllAssignment als = new AllAssignment();
     private int alim;
@@ -24,6 +35,10 @@ public class Main implements Runnable {
     static Map<String, Integer> myMap = new HashMap<String, Integer>();
     static ArrayList StudentReg;
 
+    /**
+     * This class shows progress bar window
+     * and process all data using Task 
+     */
     public void solve() {
 
         myMap.clear();
@@ -39,7 +54,7 @@ public class Main implements Runnable {
         }
         //load progressbar window
         ProgressWindow pw = new ProgressWindow();
-        pw.LoadProgressBar(Calculationtask);//Binds progress bar progress property with task progress property
+        pw.LoadProgressBar(Calculationtask); //Binds progress bar progress property with task progress property
         Calculationtask.setOnSucceeded(event -> {
             AlertFXMLController alert = new AlertFXMLController();
             alert.getNum(N);
@@ -54,6 +69,10 @@ public class Main implements Runnable {
         pw.window.setOnCloseRequest(e->ForceClose(th,pw.window));
     }
 
+    /**
+     * This method initialize all data storage
+     * and gives call to solve() method
+     */
     @Override
     public void run() {
         ArrayList names = new ArrayList<String>();
@@ -68,7 +87,7 @@ public class Main implements Runnable {
         solve();
     }
 
-    Task Calculationtask = new Task<Void>() {
+    Task Calculationtask = new Task<Void>() {   //process and save all data
         @Override
         public Void call() {
 
@@ -141,6 +160,11 @@ public class Main implements Runnable {
         }
     };
     
+    /**
+     * This method force close the progress bar
+     * @param t progress bar thread
+     * @param stage progress bar Stage
+     */
     void ForceClose(Thread t,Stage stage){
         stage.close();
         t.stop();

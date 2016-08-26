@@ -6,10 +6,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 /**
+ * <h1>Main Entry point to App</h1>
+ * This class loads the starting Interface of the app
  * @author Mursalin
+ * @version 1.0.0
  */
 public class ProjectGui extends Application {
     
@@ -28,7 +30,10 @@ public class ProjectGui extends Application {
         window.show();
     }
     
-    
+    /**
+     * This is the main method which makes use of start method.
+     * @param args Unused.
+     */
     public static void main(String[] args) {
         launch(args);
     }

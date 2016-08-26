@@ -10,11 +10,30 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+/**
+ *<h1>Class for progress bar</h1>
+ * This class creates and initialize progress bar
+ * @author Mursalin
+ * @version 1.0.0
+ */
 public class ProgressWindow {
 
+    /**
+     * Stage for progress bar
+     */
     public Stage window;
+
+    /**
+     * Progress bar
+     */
     public ProgressBar probar;
     
+    /**
+     * This class initialize progress bar and
+     * binds progress bar progress property with
+     * task progress property
+     * @param task Task to handle progress bar update
+     */
     public void LoadProgressBar(Task task) {
         window = new Stage();
         probar = new ProgressBar();

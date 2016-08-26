@@ -16,6 +16,13 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.Image;
 
+/**
+* <h1>Controller For Main Interface</h1>
+* This class Controls the events of main interface
+* @author  Mursalin
+* @see Initializable
+* @version 1.0.0
+*/
 
 public class FXMLDocumentController implements Initializable {
     
@@ -41,7 +48,11 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Label Assinumlabel;
     
-        
+    /**
+     * This method handle browse button click action
+     * provides a directory chooser for user to select
+     * the assignment containing folder
+     */
     @FXML
     private void DirectoryPath(){
     
@@ -56,6 +67,12 @@ public class FXMLDocumentController implements Initializable {
         }
     }
     
+    
+    /**
+     * This method handle process button click action
+     * Takes user specified folder path and assignment 
+     * number and pass it to main class
+     */
     @FXML
     private void ProcessData() {
         
@@ -67,6 +84,12 @@ public class FXMLDocumentController implements Initializable {
         }
     }
     
+    
+    /**
+     * This method initialize the main interface
+     * @param url URL
+     * @param rb ResourceBundle
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         Image vlogo = new Image("res/logo.png");

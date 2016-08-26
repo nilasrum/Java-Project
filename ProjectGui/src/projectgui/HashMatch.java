@@ -3,6 +3,12 @@ package projectgui;
 import java.util.Random;
 import java.math.BigInteger;
 
+/**
+ * <h1>Class for Hash-Match</h1>
+ * This class match two string using robin-karp algorithm
+ * @author Mursalin
+ * @version 1.0.0
+ */
 public class HashMatch {
 
     private String pat;
@@ -12,9 +18,13 @@ public class HashMatch {
     private int R; //radix
     private long RM; //R^(patlen-1) % prime 
 
+    /**
+     * Finds if there is a match between two given string
+     * @param txt String One
+     * @param pat String Two
+     * @return String 1 for match otherwise 0
+     */
     public String RabinKarp(String txt, String pat) {
-
-        //System.out.println("plz "+txt+" "+pat);
         
         String temp;
         if(txt.length()<pat.length()){

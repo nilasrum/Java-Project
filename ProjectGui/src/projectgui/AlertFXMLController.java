@@ -11,7 +11,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
-
+/**
+ *<h1>Modified Dialog Box</h1>
+ * This class creates a scene with two option similar to DialogBox
+ * @author Mursalin
+ * @version 1.0.0
+ */
 public class AlertFXMLController implements Initializable {
 
     private static Stage window;
@@ -26,6 +31,11 @@ public class AlertFXMLController implements Initializable {
     @FXML
     Label msg2;
     
+    /**
+     * Creates a scene similar to DialogBox and initialize it.
+     * @param stage Stage to show dialog box
+     * @throws Exception Checked Exception
+     */
     public void TestScene(Stage stage)throws Exception{
         window = stage;
         Parent root = FXMLLoader.load(getClass().getResource("/fxmlpack/AlertFXML.fxml"));
@@ -36,6 +46,10 @@ public class AlertFXMLController implements Initializable {
         window.setResizable(false);
     }
     
+    /**
+     * set the number of assignment
+     * @param n number of assignment
+     */
     public void getNum(int n){
         num=n;
     }

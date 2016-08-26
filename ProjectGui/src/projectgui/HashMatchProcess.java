@@ -4,10 +4,21 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
+/**
+ * <h1>Class for hash-match process</h1>
+ * This class makes the source code ready for Hash-match
+ * @author Mursalin
+ * @version 1.0.0
+ */
 public class HashMatchProcess {
 
     final String[] badLineBeginnings = {"#include", "#define", "//", "using", "template", "import", "package", "/*"};
 
+    /**
+     * Finds if a string starts with certain keyword
+     * @param s String 
+     * @return boolean
+     */
     public boolean startsBadly(String s) {
         for (String bad : badLineBeginnings) {
             if (s.startsWith(bad)) {
@@ -17,6 +28,11 @@ public class HashMatchProcess {
         return false;
     }
 
+    /**
+     * Reads the source code and process it for hash-matching
+     * @param path path to the source code
+     * @return String
+     */
     public String ProcessHashMatch(String path) {
 
         String ret = "";

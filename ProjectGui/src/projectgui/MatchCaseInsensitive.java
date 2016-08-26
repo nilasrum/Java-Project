@@ -1,10 +1,21 @@
 package projectgui;
-import java.io.*;
 import java.text.DecimalFormat;
 import javafx.util.converter.DoubleStringConverter;
 
-
+/**
+ * <h1>Class to find case insensitive match</h1>
+ * This class finds match between two string
+ * @author Mursalin
+ * @version 1.0.0
+ */
 public class MatchCaseInsensitive {
+
+    /**
+     * finds char to char match between two string
+     * @param one string one
+     * @param two string two
+     * @return double match percentage
+     */
     public double FindMatchCase(String one,String two){
         int total = Math.max(one.length(),two.length());
         int lim = Math.min(one.length(),two.length());

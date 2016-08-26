@@ -1,8 +1,20 @@
 package projectgui;
 import java.io.*;
 
+/**
+ * <h1>Process string for ignore-space match</h1>
+ * This class process a string and makes it ready for MatchIgnorespace 
+ * @author Mursalin
+ * @version 1.0.0
+ */
 public class ProcessIgnoreSpace {
     String ret;
+
+    /**
+     * reads the source code and generates a String ignoring all the space
+     * @param path path to source code
+     * @return String
+     */
     public String IgnoreSpace(String path){
         ret="";
         try (BufferedReader br = new BufferedReader(new FileReader(path))) {
