@@ -35,7 +35,7 @@ public class HashMatchProcess {
      */
     public String ProcessHashMatch(String path) {
 
-        String ret = "";
+        String ret = "",temp;
         try (BufferedReader br = new BufferedReader(new FileReader(path))) {
 
             String CurrentLine;
@@ -45,7 +45,14 @@ public class HashMatchProcess {
                     //contain keyword,comment etc
                 }
                 else{
-                    ret+=CurrentLine.toLowerCase();
+                    temp = "";
+                    for(int i=0;i<CurrentLine.length();i++)
+                    {
+                        if(CurrentLine.charAt(i)!=' '){
+                            temp+=CurrentLine.charAt(i);
+                        }
+                    }
+                    ret+=temp.toLowerCase();
                 }
             }
 

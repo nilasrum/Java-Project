@@ -1,6 +1,5 @@
 package projectgui;
 
-import java.io.*;
 import java.text.DecimalFormat;
 import javafx.util.converter.DoubleStringConverter;
 

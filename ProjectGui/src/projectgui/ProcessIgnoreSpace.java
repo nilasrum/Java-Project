@@ -8,7 +8,7 @@ import java.io.*;
  * @version 1.0.0
  */
 public class ProcessIgnoreSpace {
-    String ret;
+    String ret,temp;
 
     /**
      * reads the source code and generates a String ignoring all the space
@@ -20,14 +20,14 @@ public class ProcessIgnoreSpace {
         try (BufferedReader br = new BufferedReader(new FileReader(path))) {
 
             String CurrentLine;
-
             while ((CurrentLine = br.readLine()) != null) {
-                
+                temp = "";
                 for(int i=0;i<CurrentLine.length();i++){
                     if(CurrentLine.charAt(i)!=' '){
-                        ret+=CurrentLine.charAt(i);
+                        temp+=CurrentLine.charAt(i);
                     }
                 }
+                ret+=temp.toLowerCase();
             }
 
         } catch (IOException e) {
