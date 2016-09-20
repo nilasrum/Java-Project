@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="ProjectGui.jar" size="146255" download="eager" />
+    <jar href="ProjectGui.jar" size="749989" download="eager" />
     <jar href="lib\jxl-2.6.jar" size="660390" download="eager" />
   </resources>
   <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="ProjectGui" >
